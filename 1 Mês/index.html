@@ -86,6 +86,7 @@
       }
 
       /* --- Animações --- */
+      /* Apenas ajustei os valores da glowing-pulse para menos borrado */
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -100,30 +101,32 @@
       /* Animação do Coração Neon */
       @keyframes glowing-pulse {
         0% {
-          box-shadow: 0 0 5px var(--cor-principal),
-            0 0 10px var(--cor-principal), 0 0 15px var(--cor-principal);
+          box-shadow: 0 0 3px var(--cor-principal),
+            /* Reduzi a intensidade */ 0 0 6px var(--cor-principal),
+            /* Reduzi a intensidade */ 0 0 9px var(--cor-principal); /* Reduzi a intensidade */
         }
         50% {
-          box-shadow: 0 0 20px var(--cor-principal),
-            0 0 40px var(--cor-principal), 0 0 60px var(--cor-principal);
+          box-shadow: 0 0 10px var(--cor-principal),
+            /* Reduzi a intensidade */ 0 0 20px var(--cor-principal),
+            /* Reduzi a intensidade */ 0 0 30px var(--cor-principal); /* Reduzi a intensidade */
         }
         100% {
-          box-shadow: 0 0 5px var(--cor-principal),
-            0 0 10px var(--cor-principal), 0 0 15px var(--cor-principal);
+          box-shadow: 0 0 3px var(--cor-principal), 0 0 6px var(--cor-principal),
+            0 0 9px var(--cor-principal);
         }
       }
 
       @keyframes heart-intro {
         0% {
-          transform: scale(0) rotate(-45deg);
+          transform: scale(0);
           opacity: 0;
         }
         80% {
-          transform: scale(1.1) rotate(-45deg);
+          transform: scale(1.1);
           opacity: 1;
         }
         100% {
-          transform: scale(1) rotate(-45deg);
+          transform: scale(1);
           opacity: 1;
         }
       }
@@ -149,30 +152,44 @@
         text-align: center;
       }
 
-      /* Coração Neon (Feito com CSS) */
-      .glowing-heart {
+      /* ======================================================= */
+      /* ======== CORAÇÃO MAIOR E MENOS EMBASSADO (REVISADO) ======== */
+      /* ======================================================= */
+      .heart-container {
+        position: relative;
+        width: 130px; /* Aumentei a largura do contêiner */
+        height: 117px; /* Aumentei a altura do contêiner */
         animation: heart-intro 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)
           forwards;
+        transform: rotate(-45deg); /* Rotaciona o container inteiro */
       }
-      .glowing-heart::before,
-      .glowing-heart::after {
+
+      .heart-container::before,
+      .heart-container::after {
         content: "";
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100px;
-        height: 160px;
-        background: var(--cor-principal);
+        width: 68px; /* Aumentei a largura das metades */
+        height: 104px; /* Aumentei a altura das metades */
         border-radius: 50px 50px 0 0;
-        transform-origin: bottom center;
+        background: var(--cor-principal);
         animation: glowing-pulse 2.5s infinite ease-in-out;
       }
-      .glowing-heart::before {
+
+      .heart-container::before {
+        left: 65px; /* Ajustei a posição horizontal */
         transform: rotate(-45deg);
+        transform-origin: 0 100%;
       }
-      .glowing-heart::after {
+
+      .heart-container::after {
+        left: 0;
         transform: rotate(45deg);
+        transform-origin: 100% 100%;
       }
+      /* ======================================================= */
+      /* =================== FIM DA REVISÃO =================== */
+      /* ======================================================= */
 
       /* Títulos principais que aparecem após o coração */
       header .title-group {
@@ -258,15 +275,15 @@
   </head>
   <body>
     <div id="start-screen">
-      <h1>Surpresaaaa mo...</h1>
+      <h1>Pra Sempre nós...</h1>
       <button id="start-btn">Iniciar</button>
     </div>
 
     <div id="main-content">
       <header>
-        <div class="glowing-heart"></div>
+        <div class="heart-container"></div>
         <div class="title-group">
-          <h2>Feliz 1 Mês de Namoro</h2>
+          <h2>Nosso Sitezinho</h2>
           <h3>Luana & Daniel</h3>
         </div>
       </header>
@@ -296,7 +313,6 @@
             01101101 01100101 01110011 01110011 01100001 00100000
           </p>
         </section>
-
         <section class="content-section animate-on-scroll">
           <h4>Nossos Momentos</h4>
           <div class="gallery">
@@ -309,17 +325,59 @@
             <div class="gallery-item">
               <img src="3 foto.jpg" alt="Foto de Daniel e Luana" />
             </div>
+            <div class="gallery-item">
+              <img src="4 foto.jpg" alt="Foto de Daniel e Luana" />
+            </div>
+            <div class="gallery-item">
+              <img src="5 foto.jpg" alt="Foto de Daniel e Luana" />
+            </div>
+            <div class="gallery-item">
+              <img src="6 foto.jpg" alt="Foto de Daniel e Luana" />
+            </div>
+            <div class="gallery-item">
+              <img src="7 foto.jpg" alt="Foto de Daniel e Luana" />
+            </div>
+            <div class="gallery-item">
+              <img src="8 foto.jpg" alt="Foto de Daniel e Luana" />
+            </div>
+            <div class="gallery-item">
+              <img src="9 foto.jpg" alt="Foto de Daniel e Luana" />
+            </div>
+            <div class="gallery-item">
+              <img src="10 foto.jpg" alt="Foto de Daniel e Luana" />
+            </div>
+            <div class="gallery-item">
+              <img src="11 foto.jpg" alt="Foto de Daniel e Luana" />
+            </div>
+            <div class="gallery-item">
+              <img src="12 foto.jpg" alt="Foto de Daniel e Luana" />
+            </div>
+            <div class="gallery-item">
+              <img src="13 foto.jpg" alt="Foto de Daniel e Luana" />
+            </div>
+            <div class="gallery-item">
+              <img src="14 foto.jpg" alt="Foto de Daniel e Luana" />
+            </div>
+            <div class="gallery-item">
+              <img src="15 foto.jpg" alt="Foto de Daniel e Luana" />
+            </div>
           </div>
         </section>
 
         <section class="content-section animate-on-scroll">
-          <h4>Uma Pequena Carta Para Você</h4>
+          <h4>Mensagens...</h4>
           <p>
+            <strong>1 mês de namoro:</strong>
             Oi mo, acho que esse é um pequeno presente simples que posso te
             entregar hoje, não é muita coisa, porém é de coração. Infelizmente
             não tive muito tempo pra fazer algo mais complexo com estrutura de
             dados e etc... Mas queria que soubesse que é você que eu escolho,
-            hoje, amanhã e pra sempre. Eu te amo muitoooooo ❤️
+            hoje, amanhã e pra sempre. Eu te amo muitoooooo ❤️<br /><br />
+          </p>
+          <p>
+            <strong>2 mês de namoro:</strong>
+            Oi mo, sei que tá atrasado, mas te amo muito, quero passar o resto
+            da vida com você... ❤️
           </p>
         </section>
       </main>
